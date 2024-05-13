@@ -12,7 +12,7 @@ bool isPasswordCracked = false;
 void tryPassword(string password, int length, string current = "", int index = 0, int counter = 0)
 {
   if ((pow(length,36) / 5) % counter )
-  cout << to_string(counter) + " von " + to_string();
+  
   if (isPasswordCracked){
     return;
   }
