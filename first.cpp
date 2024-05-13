@@ -9,15 +9,22 @@ using namespace std::chrono;
 
 bool isPasswordCracked = false;
 
-void tryPassword(string password, int length, string current = "", int index = 0, int counter = 0)
+void tryPassword(string password, int length, string current = "", int index = 0)
 {
-  if ((pow(length,36) / 5) % counter )
-  
   if (isPasswordCracked){
     return;
   }
+  if (length > 3)
+  {
+  if (current[0] == 'Z' || current[1] == 'Z' )
+  {
+    cout << "aktuelles: " +  current << endl;
+  }
+  
+  }
+
   if (index == length){
-    counter = counter + 1;
+    
     if (current == password)
     {
       cout << "Password cracked: " << current << endl;
@@ -26,7 +33,6 @@ void tryPassword(string password, int length, string current = "", int index = 0
     
     return;
   }
-  
   
   
   
@@ -41,7 +47,7 @@ char characters[] = {'0', '1', '2', '3', '4', '5', '6', '7', '8', '9',
 for ( char i = 0; i <= 36; i++)
   {
     
-    tryPassword(password, length, current + characters[i], index + 1, counter);
+    tryPassword(password, length, current + characters[i], index + 1);
   }
 }
 
